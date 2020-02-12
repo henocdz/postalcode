@@ -109,11 +109,9 @@ with open(raw_us_postal_codes_file, "r") as usf:
         if timezone is None:
             try:
                 timezone = TIME_ZONES[city_key]
-                if not timezone:
-                    print(city_key)
             except KeyError:
-                print(city_key)
-                time_zone = "America/Denver"
+                timezone = "America/Denver"
+
             city_data["time_zone"] = timezone
 
         city_data["postal_codes"].append(postal_code)
