@@ -113,6 +113,7 @@ with open(raw_us_postal_codes_file, "r") as usf:
                     print(city_key)
             except KeyError:
                 print(city_key)
+                time_zone = "America/Denver"
             city_data["time_zone"] = timezone
 
         city_data["postal_codes"].append(postal_code)
