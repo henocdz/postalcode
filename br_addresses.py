@@ -6,7 +6,7 @@ import json
 brazilian_ceps_file = "br_postalcodes.csv"
 brazil_timezones_file = "br_timezones.json"
 
-API_KEY = "RZBSUHER6MUY"
+API_KEY = ""
 
 
 with open(brazil_timezones_file, "r") as f:
@@ -17,7 +17,6 @@ with open(brazil_timezones_file, "r") as f:
 
 with open(brazilian_ceps_file, "r") as cfile:
     csv_reader = csv.reader(cfile)
-    csv_headers = next(csv_reader)
     addresses_aggr = dict()
     last_pc = 0
 
@@ -48,9 +47,6 @@ with open(brazilian_ceps_file, "r") as cfile:
             city_data["timezone"] = timezone
 
         towns = city_data.setdefault("towns", [])
-
-        if postal_code == "01418200":
-            print(line)
 
         cep_data = dict(name=town_name, postal_code=postal_code)
         towns.append(cep_data)
